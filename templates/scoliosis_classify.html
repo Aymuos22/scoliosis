@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoliosis Classification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #1f1f1f;
+            color: #03DAC5;
+            padding: 1rem 0;
+        }
+        .container {
+            margin: 2rem auto;
+            width: 50%;
+            background: #1e1e1e;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        }
+        input[type="file"] {
+            padding: 10px;
+            margin: 10px 0;
+            background: #2e2e2e;
+            border-radius: 5px;
+            color: #e0e0e0;
+        }
+        .upload-button {
+            background-color: #03DAC5;
+            color: #121212;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .upload-button:hover {
+            background-color: #028c84;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 1rem;
+            background: #2e2e2e;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Scoliosis Classification</h1>
+    </header>
+    <div class="container">
+        <h2>Upload a Spinal X-ray Image</h2>
+        <form action="/scoliosis-classify" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*" required>
+            <br>
+            <button class="upload-button" type="submit">Classify</button>
+        </form>
+    </div>
+    {% if prediction %}
+    <div class="result">
+        <h2>Classification Result</h2>
+        <p><strong>Predicted Category:</strong> {{ prediction }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
