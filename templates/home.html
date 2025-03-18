@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoliosis Classification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #1f1f1f;
+            color: #03DAC5;
+            padding: 1rem;
+            font-size: 1.5rem;
+        }
+        .container {
+            max-width: 90%;
+            width: 100%;
+            margin: 1.5rem auto;
+            background: #1e1e1e;
+            padding: 1.2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        }
+        h1, h2 {
+            font-size: 1.3rem;
+            margin: 0.5rem 0;
+        }
+        .result {
+            margin-top: 15px;
+            padding: 1rem;
+            background: #2e2e2e;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            text-align: left;
+            overflow-x: auto;
+        }
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .test-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            font-size: 1rem;
+            color: #121212;
+            background-color: #03DAC5;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .test-button:hover {
+            background-color: #028c84;
+        }
+        @media (max-width: 768px) {
+            header {
+                font-size: 1.3rem;
+                padding: 0.8rem;
+            }
+            .container {
+                max-width: 95%;
+                padding: 1rem;
+            }
+            h1, h2 {
+                font-size: 1.2rem;
+            }
+            .test-button {
+                font-size: 0.9rem;
+                padding: 10px 16px;
+            }
+        }
+        @media (max-width: 480px) {
+            h1, h2 {
+                font-size: 1.1rem;
+            }
+            .container {
+                padding: 0.8rem;
+            }
+            pre {
+                font-size: 0.9rem;
+            }
+            .test-button {
+                font-size: 0.85rem;
+                padding: 8px 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Scoliosis Classification</h1>
+    </header>
+    <div class="container">
+        <h2>Project Overview</h2>
+        <p>Data Augmentation for Improved Model Performance – Increased dataset size from 188 to 2000 images using augmentation techniques, enhancing model generalization.</p>
+        <p>VGGNet and CNN for Scoliosis Detection – Implemented both CNN and VGGNet models separately to analyze their effectiveness in detecting scoliosis.</p>
+        <p>Web-Based Accessibility – Hosted the model online, making scoliosis detection accessible from anywhere without requiring local installations.</p>
+        <p>Automated Medical Assistance – Provides an AI-driven approach to assist doctors in detecting scoliosis faster and more accurately.</p>
+        <p>Optimized Training Process – Used transfer learning (in the VGG model) to enhance detection accuracy with limited data.</p>
+        <p>User-Friendly Interface – Designed an intuitive interface for easy image upload and quick analysis results.</p>
+        <p>Scalability – The model can be further improved by integrating larger real-world datasets for better precision.</p>
+        <p>Potential for Future Enhancements – The project can be extended to mobile applications or integrated with hospital systems for real-time diagnosis.</p>
+        <button class="test-button" onclick="location.href='{{ url_for('scoliosis_classify') }}'">Test Model</button>
+
+    </div>
+    <div class="container result">
+        <h2>CNN Model Performance</h2>
+        <p><strong>Model Accuracy:</strong> 0.8191</p>
+        <pre>
+Classification Report:
+               precision    recall  f1-score   support
+
+      Normal       0.75      0.93      0.83       141
+   Scoliosis       0.92      0.72      0.80       152
+
+    accuracy                           0.82       293
+   macro avg       0.83      0.82      0.82       293
+weighted avg       0.84      0.82      0.82       293
+        </pre>
+    </div>
+    <div class="container result">
+        <h2>VGGNet Model Performance</h2>
+        <p><strong>Model Accuracy:</strong> 0.9693</p>
+        <pre>
+Classification Report:
+               precision    recall  f1-score   support
+
+      Normal       0.99      0.94      0.97       137
+   Scoliosis       0.95      0.99      0.97       156
+
+    accuracy                           0.97       293
+   macro avg       0.97      0.97      0.97       293
+weighted avg       0.97      0.97      0.97       293
+        </pre>
+    </div>
+</body>
+</html>
