@@ -29,7 +29,7 @@ def classify_scoliosis(image_path):
             {
                 "role": "user",
                 "content": [
-                    {"type": "text", "text": "Analyze this spinal X-ray for scoliosis by assessing spinal curvature, vertebral alignment, and any visible abnormalities. Diagnose 'Scoliosis detected' only if the spine exhibits a clear, well-defined arched curvature rather than a minor deviation. The curvature must form a noticeable C-shape or S-shape, with a Cobb angle of at least 10 degrees and visible vertebral rotation. If the spine is mostly straight or shows slight, irregular, or non-arched deviations, diagnose 'No scoliosis detected.' If the findings are uncertain, borderline, or lack definitive indicators such as rotation and a distinct arch, state 'Inconclusive, further evaluation needed.' Prioritize accuracy and diagnose scoliosis only when a pronounced arched curvature is present. If C-shape or S shape is not visible too much then return no scoliosis"},
+                    {"type": "text", "text":"classify scoliosis in this image amd return scoliosis or no scoliosis detected."},
                     {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{base64_image}"}}   
                 ],
             }
